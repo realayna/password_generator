@@ -5,11 +5,13 @@ import string
 import pyperclip 
 p_chars = string.ascii_letters + string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
 def generate_password():
-    password_field
+    password_field.delete(0, END)
     length = 10
     password = "".join([random.choice(p_chars) for i in range (length)])
     print(password)
     pyperclip.copy(password)
+    password_field.insert(0, password)
+    
     
 window = Tk()
 window.title("Password generator")
@@ -25,8 +27,8 @@ button1 = Button(text="CLICK HERE", bg="#E7E7E7", font=("Inter"), command=genera
 button1.pack()
 
 
-password_field = Entry(bg="#CFC1C1",
-                       font=("Inter", 15, "bold"), width=40)
+password_field = Entry(bg="#E7E7E7",
+                       font=("Inter", 15), width=15)
 
 password_field.pack()
 #generate_password()
